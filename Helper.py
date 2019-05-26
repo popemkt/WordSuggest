@@ -1,6 +1,6 @@
 import csv
 import re
-maxNum = 7
+maxNum = 10
 
 
 # cai nay de thao tac vs file database, khong can quan tam
@@ -25,7 +25,7 @@ f.close()
 print(len(flist))
 print(len(flist[0]))
 print(flist[0])
-with open('test1.csv', 'w') as csvFile:
+with open('test2.csv', 'w') as csvFile:
     writer = csv.writer(csvFile)
     for row in flist:
         writer.writerow(row)

@@ -1,9 +1,9 @@
 from sklearn.neighbors import NearestNeighbors as nn
 import csv
 import Metric as mt
-zero = 66
+zero = 33
 # ket qua co the thay doi neu chon zero la toa do khac, chua tim duoc zero toi uu
-maxNum = 7
+maxNum = 10
 # do dai toi da cua chu nhap vao
 nbNum = 4
 # so luong tu muon goi y
@@ -33,20 +33,14 @@ def printResult(indices, data):
     print("")
 
 
-with open('Test1.csv', newline='\n') as csvfile:
+with open('Test2.csv', newline='\n') as csvfile:
     data = list(csv.reader(csvfile))
 
 print("Number of words: %d" % len(data))
+print("Max length: %d" % maxNum)
 normData(data)
-# for idx, dat in enumerate(data):
-#     if len(dat) < maxNum:
-#         print("vai")
-#         del data[idx]
-#     for da in dat:
-#         if da is None:
-#             print("cac")
 while True:
     word = getInput(input = list(input("Enter string: ").lower()))
-    nb = nn(n_neighbors=nbNum, algorithm='ball_tree', metric = mt.compare).fit(data)
+    nb = nn(n_neighbors=nbNum, algorithm='brute', metric = mt.compare).fit(data)
     distance, indices  = nb.kneighbors(word)
     printResult(indices = indices[0], data = data)

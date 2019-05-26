@@ -1,17 +1,47 @@
 import math as m
+zero = 33
+maxNum = 10;
 
-
-
-maxNum = 7;
+dict = {
+    0:[0,0],
+    1:[0,1],
+    2:[0,2],
+    3:[0,3],
+    4:[0,4],
+    5:[0,5],
+    6:[0,6],
+    7:[0,7],
+    8:[0,8],
+    9:[0,9],
+    10:[1,0],
+    11:[1,1],
+    12:[1,2],
+    13:[1,3],
+    14:[1,4],
+    15:[1,5],
+    16:[1,6],
+    17:[1,7],
+    18:[1,8],
+    20:[2,0],
+    21:[2,1],
+    22:[2,2],
+    23:[2,3],
+    24:[2,4],
+    25:[2,5],
+    26:[2,6],
+    zero:[4,4]
+}
 def compare(x,y):
     # ham tinh khoang cach giua 2 phim tren ban phim dua vao toa do
     total = 0
     for i in range(0,maxNum):
-        fx = int(x[i])%10
-        lx = int(x[i])/10
-        fy = int(y[i])%10
-        ly = int(y[i])/10
-        total += m.sqrt((fx -  fy)**2+(lx-ly)**2)
+        # fx = int(x[i])%10
+        # lx = int(x[i])/10
+        # fy = int(y[i])%10
+        # # ly = int(y[i])/10
+        # print(int(x[i]))
+        # print(int(y[i]))
+        total += m.sqrt((dict[int(x[i])][0] -  dict[int(y[i])][0])**2+(dict[int(y[i])][1]-dict[int(x[i])][1])**2)
     return total/maxNum
 
 
@@ -23,7 +53,7 @@ def cvlct(a):
     if (a=="w"):
         return 1
     if (a=="e"):
-        return 1
+        return 2
     if (a == "r"):
         return 3
     if (a == "t"):
